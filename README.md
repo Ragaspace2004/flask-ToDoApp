@@ -15,7 +15,8 @@ SQLAlchemy: Database ORM
 SQLite: Database
 
 ## APPLICATION STRUCTURE
-```TodoApp/
+```
+TodoApp/
 ├── app.py            # Main application file
 ├── templates/
 │   ├── index.html    # Template for displaying tasks and adding new tasks
@@ -38,11 +39,14 @@ SQLite: Database
 
 ## BEST PRACTICES
 Set up a virtual environment
-```python -m venv venv
+```
+python -m venv venv
 source venv/bin/activate
 ```
 On Windows, use 
-```venv\Scripts\activate```
+```
+venv\Scripts\activate
+```
 
 
 
