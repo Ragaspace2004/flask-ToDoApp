@@ -15,7 +15,7 @@ SQLAlchemy: Database ORM
 SQLite: Database
 
 ## APPLICATION STRUCTURE
-TodoApp/
+```TodoApp/
 ├── app.py            # Main application file
 ├── templates/
 │   ├── index.html    # Template for displaying tasks and adding new tasks
@@ -25,7 +25,7 @@ TodoApp/
 │   ├── main.css  
 ├── requirements.txt  # Python dependencies
 └── README.md         # This README file
-
+```
 ## Installation
 
 1. Clone the repository:
