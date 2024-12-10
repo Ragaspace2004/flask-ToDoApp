@@ -9,10 +9,10 @@ This is a simple Todo application built using Flask and SQLAlchemy as part of my
 - Delete tasks.
 
 ## Technologies Used
-Python: Programming language
-Flask: Web framework
-SQLAlchemy: Database ORM
-SQLite: Database
+- Python: Programming language
+- Flask: Web framework
+- SQLAlchemy: Database ORM
+- SQLite: Database
 
 ## APPLICATION STRUCTURE
 ```
