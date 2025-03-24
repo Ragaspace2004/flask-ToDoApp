@@ -47,7 +47,10 @@ On Windows, use
 ```
 venv\Scripts\activate
 ```
-
+## DEPLOYMENT
+Platform : vercel
+https://flask-to-do-app-omega.vercel.app/
+Visit Here!!
 
 
 
