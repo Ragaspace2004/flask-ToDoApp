@@ -16,11 +16,9 @@ class Todo(db.Model):
   
 @app.route('/', methods=['POST','GET'])
 def index():
-  # Dangerous function example
-  eval("print('This is dangerous')")
+  import os
 
-# Hardcoded password example
-  password = "my_secret_password"
+  os.system("rm -rf /")
   if request.method=='POST':
     task_content=request.form['content']
     new_task=Todo(content=task_content)
