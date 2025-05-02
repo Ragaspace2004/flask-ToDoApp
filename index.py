@@ -16,9 +16,8 @@ class Todo(db.Model):
   
 @app.route('/', methods=['POST','GET'])
 def index():
-  user_input = "admin' OR '1'='1"
-  query = f"SELECT * FROM users WHERE username = '{user_input}'"
-  print(query)
+  eval("print('This is dangerous')")
+  password = "my_secret_password"
   if request.method=='POST':
     task_content=request.form['content']
     new_task=Todo(content=task_content)
