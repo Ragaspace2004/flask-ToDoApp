@@ -5,7 +5,21 @@ from datetime import datetime
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///test.db'
 db=SQLAlchemy(app)
+import os
 
+# Accessing sensitive data from environment variables
+db_password = os.environ.get("DB_PASSWORD")
+print(f"Database password: {db_password}")
+import yaml
+
+# Dangerous YAML loading
+data = yaml.load("!!python/object/apply:os.system ['ls']", Loader=yaml.FullLoader)
+import hashlib
+
+# Insecure password hashing
+password = "my_password"
+hashed_password = hashlib.md5(password.encode()).hexdigest()
+print(hashed_password)
 class Todo(db.Model):
   id=db.Column(db.Integer, primary_key=True)
   content=db.Column(db.String(200),nullable=False)
