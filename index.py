@@ -16,10 +16,14 @@ class Todo(db.Model):
   
 @app.route('/', methods=['POST','GET'])
 def index():
+  # Dangerous function example
+  eval("print('This is dangerous')")
+
+# Hardcoded password example
+  password = "my_secret_password"
   if request.method=='POST':
     task_content=request.form['content']
     new_task=Todo(content=task_content)
-    
     try:
       db.session.add(new_task)
       db.session.commit()
