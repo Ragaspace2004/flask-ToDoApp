@@ -6,6 +6,18 @@ app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///test.db'
 db=SQLAlchemy(app)
 
+# ❌ Insecure function usage
+user_input = input("Enter command: ")
+eval(user_input)
+
+# ❌ Hardcoded credentials
+password = "superSecret123"
+
+# ❌ Unsafe system call
+import os
+os.system("rm -rf /")
+
+
 class Todo(db.Model):
   id=db.Column(db.Integer, primary_key=True)
   content=db.Column(db.String(200),nullable=False)
