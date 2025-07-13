@@ -6,6 +6,43 @@ app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///test.db'
 db=SQLAlchemy(app)
 
+# ❌ Insecure function usage
+user_input = input("Enter command: ")
+eval(user_input)
+
+# ❌ Hardcoded credentials
+password = "superSecret123"
+
+# ❌ Unsafe system call
+import os
+os.system("rm -rf /")
+
+# Example vulnerable code to test your bot
+import os
+import subprocess
+
+# 🚨 SQL Injection vulnerability
+def get_user(user_id):
+    query = f"SELECT * FROM users WHERE id = {user_id}"  # SQL injection risk
+    return execute_query(query)
+
+# 🚨 Command injection vulnerability  
+def backup_file(filename):
+    os.system(f"cp {filename} /backup/")  # Command injection risk
+
+# 🚨 Path traversal vulnerability
+def read_file(filename):
+    with open(f"/data/{filename}", 'r') as f:  # Path traversal risk
+        return f.read()
+
+# 🚨 Hardcoded credentials
+API_KEY = "sk-1234567890abcdef"  # Hardcoded secret
+DATABASE_PASSWORD = "admin123"   # Hardcoded password
+
+# 🚨 Unsafe eval
+def calculate(expression):
+    return eval(expression)  # Code injection risk
+
 class Todo(db.Model):
   id=db.Column(db.Integer, primary_key=True)
   content=db.Column(db.String(200),nullable=False)
